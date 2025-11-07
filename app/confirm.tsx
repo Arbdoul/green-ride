@@ -2,9 +2,9 @@ import React from "react";
 import { Alert, SafeAreaView, StyleSheet, Text, View } from "react-native";
 import { darkTheme, lightTheme } from "../src/theme/colors";
 
-import { Button } from "@/src/components/button";
-import { useRideStore } from "@/src/store/RideStore";
 import { useRouter } from "expo-router";
+import { Button } from "../src/components/button";
+import { useRideStore } from "../src/store/RideStore";
 
 export default function ConfirmScreen() {
   const navigation = useRouter();
@@ -26,11 +26,11 @@ export default function ConfirmScreen() {
       [
         {
           text: "View Profile",
-          onPress: () => navigation.navigate("/profile"),
+          onPress: () => navigation.push("/profile"),
         },
         {
           text: "Book Another",
-          onPress: () => navigation.navigate("/home"),
+          onPress: () => navigation.push("/home"),
         },
       ]
     );
