@@ -1,6 +1,7 @@
 import { EcoStats } from "@/src/components/EcoStat";
 import { useRideStore } from "@/src/store/RideStore";
 import { darkTheme, lightTheme } from "@/src/theme/colors";
+import { Ionicons } from "@expo/vector-icons";
 import React from "react";
 import {
   SafeAreaView,
@@ -20,14 +21,20 @@ export default function ProfileScreen() {
       style={[styles.container, { backgroundColor: theme.background }]}
     >
       <ScrollView contentContainerStyle={styles.content}>
+        {/* Header */}
         <View style={styles.header}>
-          <Text style={styles.avatar}>👤</Text>
+          <View
+            style={[styles.avatarContainer, { backgroundColor: theme.surface }]}
+          >
+            <Ionicons name="person" size={48} color={theme.primary} />
+          </View>
           <Text style={[styles.name, { color: theme.text }]}>Eco Warrior</Text>
           <Text style={[styles.subtitle, { color: theme.textSecondary }]}>
             GreenRide Member
           </Text>
         </View>
 
+        {/* Eco Stats Section */}
         <View style={styles.statsSection}>
           <Text style={[styles.sectionTitle, { color: theme.text }]}>
             Your Impact
@@ -35,12 +42,17 @@ export default function ProfileScreen() {
           <EcoStats />
         </View>
 
+        {/* Achievements */}
         <View style={[styles.card, { backgroundColor: theme.surface }]}>
-          <Text style={[styles.cardTitle, { color: theme.text }]}>
-            Achievements 🏆
-          </Text>
+          <View style={styles.cardHeader}>
+            <Ionicons name="trophy" size={20} color={theme.primary} />
+            <Text style={[styles.cardTitle, { color: theme.text }]}>
+              Achievements
+            </Text>
+          </View>
+
           <View style={styles.achievement}>
-            <Text style={styles.achievementIcon}>🌱</Text>
+            <Ionicons name="leaf" size={28} color={theme.success} />
             <View style={styles.achievementText}>
               <Text style={[styles.achievementTitle, { color: theme.text }]}>
                 Eco Beginner
@@ -55,7 +67,7 @@ export default function ProfileScreen() {
 
           {userProfile.totalRides >= 5 && (
             <View style={styles.achievement}>
-              <Text style={styles.achievementIcon}>⭐</Text>
+              {/* <Ionicons name="star" size={28} color={theme.warning} />  */}
               <View style={styles.achievementText}>
                 <Text style={[styles.achievementTitle, { color: theme.text }]}>
                   Green Champion
@@ -74,7 +86,7 @@ export default function ProfileScreen() {
 
           {userProfile.totalCO2Saved >= 10 && (
             <View style={styles.achievement}>
-              <Text style={styles.achievementIcon}>🌍</Text>
+              <Ionicons name="earth" size={28} color={theme.success} />
               <View style={styles.achievementText}>
                 <Text style={[styles.achievementTitle, { color: theme.text }]}>
                   Planet Saver
@@ -92,17 +104,26 @@ export default function ProfileScreen() {
           )}
         </View>
 
+        {/* Settings */}
         <View style={[styles.card, { backgroundColor: theme.surface }]}>
           <View style={styles.settingRow}>
-            <View>
-              <Text style={[styles.settingLabel, { color: theme.text }]}>
-                Dark Mode
-              </Text>
-              <Text
-                style={[styles.settingDesc, { color: theme.textSecondary }]}
-              >
-                {isDarkMode ? "Enabled" : "Disabled"}
-              </Text>
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <Ionicons
+                name={isDarkMode ? "moon" : "sunny"}
+                size={20}
+                color={theme.primary}
+                style={{ marginRight: 8 }}
+              />
+              <View>
+                <Text style={[styles.settingLabel, { color: theme.text }]}>
+                  Dark Mode
+                </Text>
+                <Text
+                  style={[styles.settingDesc, { color: theme.textSecondary }]}
+                >
+                  {isDarkMode ? "Enabled" : "Disabled"}
+                </Text>
+              </View>
             </View>
             <Switch
               value={isDarkMode}
@@ -129,8 +150,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 32,
   },
-  avatar: {
-    fontSize: 64,
+  avatarContainer: {
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    alignItems: "center",
+    justifyContent: "center",
     marginBottom: 12,
   },
   name: {
@@ -154,19 +179,21 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     marginBottom: 16,
   },
+  cardHeader: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 16,
+    gap: 8,
+  },
   cardTitle: {
     fontSize: 18,
     fontWeight: "bold",
-    marginBottom: 16,
   },
   achievement: {
     flexDirection: "row",
     alignItems: "center",
     marginBottom: 16,
-  },
-  achievementIcon: {
-    fontSize: 32,
-    marginRight: 12,
+    gap: 12,
   },
   achievementText: {
     flex: 1,

@@ -1,3 +1,4 @@
+import { Ionicons } from "@expo/vector-icons";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { useRideStore } from "../store/RideStore";
@@ -11,17 +12,20 @@ export const EcoStats: React.FC = () => {
     {
       label: "Total Rides",
       value: userProfile.totalRides.toString(),
-      icon: "🚗",
+      icon: "car-outline",
+      color: theme.primary,
     },
     {
       label: "CO₂ Saved",
       value: `${userProfile.totalCO2Saved.toFixed(1)} kg`,
-      icon: "🌱",
+      icon: "leaf-outline",
+      color: theme.success,
     },
     {
       label: "EcoPoints",
       value: userProfile.ecoPoints.toString(),
-      icon: "⭐",
+      icon: "star-outline",
+      color: "#facc15",
     },
   ];
 
@@ -33,7 +37,7 @@ export const EcoStats: React.FC = () => {
           style={[styles.statCard, { backgroundColor: theme.surface }]}
           accessibilityLabel={`${stat.label}: ${stat.value}`}
         >
-          <Text style={styles.icon}>{stat.icon}</Text>
+          <Ionicons name={stat.icon as any} size={28} color={stat.color} />
           <Text style={[styles.value, { color: theme.text }]}>
             {stat.value}
           </Text>
@@ -63,14 +67,10 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 4,
   },
-  icon: {
-    fontSize: 32,
-    marginBottom: 8,
-  },
   value: {
     fontSize: 20,
     fontWeight: "bold",
-    marginBottom: 4,
+    marginVertical: 6,
   },
   label: {
     fontSize: 12,
