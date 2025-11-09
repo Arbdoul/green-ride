@@ -1,8 +1,20 @@
 import { useRideStore } from "@/src/store/RideStore";
+import * as Location from "expo-location";
 import { useRouter } from "expo-router";
-import React, { useMemo } from "react";
-import { FlatList, SafeAreaView, StyleSheet, Text, View } from "react-native";
+import React, { useEffect, useMemo, useState } from "react";
+import {
+  ActivityIndicator,
+  FlatList,
+  Platform,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
+import {
+  SafeAreaProvider,
+  useSafeAreaInsets,
+} from "react-native-safe-area-context";
 import { RideCard } from "../src/components/RideCard";
 import { darkTheme, lightTheme } from "../src/theme/colors";
 import { Ride } from "../src/types";
@@ -10,12 +22,15 @@ import { Ride } from "../src/types";
 export default function HomeScreen() {
   const { rides, bookRide, isDarkMode } = useRideStore();
   const theme = isDarkMode ? darkTheme : lightTheme;
+  const inset = useSafeAreaInsets();
   const router = useRouter();
 
-  const userLocation = {
-    latitude: 37.78825,
-    longitude: -122.4324,
-  };
+  const [userLocation, setUserLocation] = useState<{
+    latitude: number;
+    longitude: number;
+  } | null>(null);
+
+  const [loading, setLoading] = useState(true);
 
   const destination = {
     latitude: 37.7949,
@@ -27,17 +42,54 @@ export default function HomeScreen() {
     [isDarkMode]
   );
 
+  useEffect(() => {
+    (async () => {
+      // Request location permission
+      let { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== "granted") {
+        console.log("Permission to access location was denied");
+        setLoading(false);
+        return;
+      }
+
+      // Get the user's current position
+      let location = await Location.getCurrentPositionAsync({});
+      setUserLocation({
+        latitude: location.coords.latitude,
+        longitude: location.coords.longitude,
+      });
+      setLoading(false);
+    })();
+  }, []);
+
   const handleBookRide = (ride: Ride) => {
     bookRide(ride);
     router.push("/confirm");
   };
 
-  return (
-    <SafeAreaView
-      style={[styles.container, { backgroundColor: theme.background }]}
-    >
-      {/* <Text style={[styles.title, { color: theme.text }]}>Available Rides</Text> */}
+  if (loading || !userLocation) {
+    return (
+      <SafeAreaProvider
+        style={[
+          styles.container,
+          { justifyContent: "center", alignItems: "center" },
+        ]}
+      >
+        <ActivityIndicator size="large" color={theme.primary} />
+        <Text style={{ color: theme.text, marginTop: 10 }}>
+          Fetching your location...
+        </Text>
+      </SafeAreaProvider>
+    );
+  }
 
+  return (
+    <SafeAreaProvider
+      style={[
+        styles.container,
+        { backgroundColor: theme.background, paddingTop: inset.top },
+      ]}
+    >
       <View style={styles.header}>
         <Text style={[styles.title, { color: theme.text }]}>
           Available Rides
@@ -49,7 +101,7 @@ export default function HomeScreen() {
 
       <View style={styles.mapContainer}>
         <MapView
-          provider={PROVIDER_GOOGLE}
+          provider={Platform.OS === "android" ? PROVIDER_GOOGLE : undefined}
           style={styles.map}
           initialRegion={{
             ...userLocation,
@@ -57,6 +109,8 @@ export default function HomeScreen() {
             longitudeDelta: 0.05,
           }}
           customMapStyle={mapStyle}
+          showsUserLocation={true}
+          followsUserLocation={true}
         >
           <Marker
             coordinate={userLocation}
@@ -78,7 +132,7 @@ export default function HomeScreen() {
           <RideCard ride={item} onPress={() => handleBookRide(item)} />
         )}
       />
-    </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
 
@@ -113,12 +167,5 @@ const styles = StyleSheet.create({
   },
   map: {
     flex: 1,
-  },
-  ridesContainer: {
-    flex: 1,
-    paddingHorizontal: 20,
-  },
-  listContent: {
-    paddingBottom: 20,
   },
 });

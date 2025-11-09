@@ -1,25 +1,30 @@
-import React from "react";
+import { Ionicons } from "@expo/vector-icons";
+import { router, useRouter } from "expo-router";
+import React, { useEffect } from "react";
 import { Alert, SafeAreaView, StyleSheet, Text, View } from "react-native";
-import { darkTheme, lightTheme } from "../src/theme/colors";
-
-import { useRouter } from "expo-router";
 import { Button } from "../src/components/button";
 import { useRideStore } from "../src/store/RideStore";
+import { darkTheme, lightTheme } from "../src/theme/colors";
 
 export default function ConfirmScreen() {
   const navigation = useRouter();
   const { currentBooking, confirmBooking, isDarkMode } = useRideStore();
   const theme = isDarkMode ? darkTheme : lightTheme;
 
+  useEffect(() => {
+    if (!currentBooking) {
+      router.replace("/home");
+    }
+  }, [currentBooking]);
+
   if (!currentBooking) {
-    navigation.replace("/home");
     return null;
   }
 
   const handleConfirm = () => {
     confirmBooking();
     Alert.alert(
-      "Ride Confirmed! 🎉",
+      "Ride Confirmed!",
       `You've earned ${Math.floor(
         currentBooking.co2Saved * 10
       )} EcoPoints and saved ${currentBooking.co2Saved.toFixed(1)} kg of CO₂!`,
@@ -44,7 +49,14 @@ export default function ConfirmScreen() {
       style={[styles.container, { backgroundColor: theme.background }]}
     >
       <View style={styles.content}>
-        <Text style={styles.icon}>✅</Text>
+        {/* Success Icon */}
+        <Ionicons
+          name="checkmark-circle"
+          size={80}
+          color={theme.success}
+          style={styles.icon}
+        />
+
         <Text style={[styles.title, { color: theme.text }]}>
           Confirm Your Ride
         </Text>
@@ -79,10 +91,22 @@ export default function ConfirmScreen() {
 
           <View style={styles.divider} />
 
+          {/* Environmental Impact Section */}
           <View style={styles.ecoSection}>
-            <Text style={[styles.ecoTitle, { color: theme.success }]}>
-              Environmental Impact 🌍
-            </Text>
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                gap: 6,
+                paddingBottom: 8,
+              }}
+            >
+              <Ionicons name="earth" size={20} color={theme.success} />
+              <Text style={[styles.ecoTitle, { color: theme.success }]}>
+                Environmental Impact
+              </Text>
+            </View>
+
             <View style={styles.row}>
               <Text style={[styles.label, { color: theme.textSecondary }]}>
                 CO₂ Saved
@@ -91,6 +115,7 @@ export default function ConfirmScreen() {
                 {currentBooking.co2Saved.toFixed(1)} kg
               </Text>
             </View>
+
             <View style={styles.row}>
               <Text style={[styles.label, { color: theme.textSecondary }]}>
                 EcoPoints Earned
@@ -125,8 +150,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   icon: {
-    fontSize: 64,
-    textAlign: "center",
+    alignSelf: "center",
     marginBottom: 16,
   },
   title: {
@@ -139,6 +163,11 @@ const styles = StyleSheet.create({
     padding: 20,
     borderRadius: 16,
     marginBottom: 32,
+    shadowColor: "#000",
+    shadowOpacity: 0.1,
+    shadowOffset: { width: 0, height: 4 },
+    shadowRadius: 8,
+    elevation: 3,
   },
   row: {
     flexDirection: "row",
@@ -174,7 +203,7 @@ const styles = StyleSheet.create({
   ecoTitle: {
     fontSize: 16,
     fontWeight: "600",
-    marginBottom: 12,
+    // marginBottom: 12,
   },
   ecoValue: {
     fontSize: 18,

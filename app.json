@@ -9,7 +9,11 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.arbdool.greenride",
+      "config": {
+        "googleMapsApiKey": "AIzaSyCZQbaiKq717alLDP5t68IaYJbDmuifnc0"
+      }
     },
     "android": {
       "adaptiveIcon": {
