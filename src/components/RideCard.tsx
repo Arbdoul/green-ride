@@ -35,7 +35,7 @@ export const RideCard: React.FC<RideCardProps> = ({ ride, onPress }) => {
       <View style={styles.details}>
         <View style={styles.priceContainer}>
           <Text style={[styles.price, { color: theme.text }]}>
-            ${ride.price.toFixed(2)}
+            N{ride.price.toFixed(2)}
           </Text>
         </View>
 
@@ -62,6 +62,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
+    marginHorizontal: 20,
   },
   header: {
     flexDirection: "row",
@@ -91,7 +92,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   price: {
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: "bold",
   },
   ecoContainer: {

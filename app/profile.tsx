@@ -11,7 +11,7 @@ import {
   View,
 } from "react-native";
 
-export const ProfileScreen: React.FC = () => {
+export default function ProfileScreen() {
   const { userProfile, isDarkMode, toggleTheme } = useRideStore();
   const theme = isDarkMode ? darkTheme : lightTheme;
 
@@ -116,7 +116,7 @@ export const ProfileScreen: React.FC = () => {
       </ScrollView>
     </SafeAreaView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
