@@ -1,7 +1,8 @@
 import { Ionicons } from "@expo/vector-icons";
 import { router, useRouter } from "expo-router";
 import React, { useEffect } from "react";
-import { Alert, SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { Alert, StyleSheet, Text, View } from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 import { Button } from "../src/components/button";
 import { useRideStore } from "../src/store/RideStore";
 import { darkTheme, lightTheme } from "../src/theme/colors";
@@ -45,7 +46,7 @@ export default function ConfirmScreen() {
     currentBooking.vehicleType === "Electric" ? theme.electric : theme.hybrid;
 
   return (
-    <SafeAreaView
+    <SafeAreaProvider
       style={[styles.container, { backgroundColor: theme.background }]}
     >
       <View style={styles.content}>
@@ -136,7 +137,7 @@ export default function ConfirmScreen() {
           />
         </View>
       </View>
-    </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
 

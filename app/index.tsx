@@ -29,7 +29,7 @@ export default function SplashScreen() {
     <View style={styles.container}>
       <Animated.View style={[styles.content, { opacity: fadeAnim }]}>
         <Image
-          source={require("../assets/images/logo.png")} // 👈 your eco logo
+          source={require("../assets/images/ride.png")}
           style={styles.logo}
           resizeMode="contain"
         />
