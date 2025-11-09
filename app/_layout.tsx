@@ -24,6 +24,8 @@ export default function RootLayout() {
           name="confirm"
           options={{
             headerShown: true,
+            headerTitleAlign: "center",
+            headerShadowVisible: false,
             title: "Confirm Ride",
             headerLeft: () => (
               <TouchableOpacity onPress={() => router.back()} style={{}}>
@@ -38,6 +40,8 @@ export default function RootLayout() {
           name="profile"
           options={{
             headerShown: true,
+            headerTitleAlign: "center",
+            headerShadowVisible: false,
             headerLeft: ({}) => (
               <TouchableOpacity onPress={() => router.back()} style={{}}>
                 <Ionicons name="chevron-back" size={28} color={theme.text} />

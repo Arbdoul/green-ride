@@ -24,6 +24,9 @@
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
+      "googleMaps": {
+        "apiKey": "AIzaSyCZQbaiKq717alLDP5t68IaYJbDmuifnc0"
+      },
       "package": "com.arbdool.greenride"
     },
     "web": {

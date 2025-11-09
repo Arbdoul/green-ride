@@ -1,6 +1,7 @@
 import { useRideStore } from "@/src/store/RideStore";
 import * as Location from "expo-location";
 import { useRouter } from "expo-router";
+import { StatusBar } from "expo-status-bar";
 import React, { useEffect, useMemo, useState } from "react";
 import {
   ActivityIndicator,
@@ -90,6 +91,12 @@ export default function HomeScreen() {
         { backgroundColor: theme.background, paddingTop: inset.top },
       ]}
     >
+      <StatusBar
+        style={isDarkMode ? "light" : "dark"}
+        translucent
+        backgroundColor="transparent"
+      />
+
       <View style={styles.header}>
         <Text style={[styles.title, { color: theme.text }]}>
           Available Rides
