@@ -1,32 +1,38 @@
 import { useRideStore } from "@/src/store/RideStore";
 import { useRouter } from "expo-router";
-import React, { useEffect } from "react";
-import { Animated, StyleSheet, Text, View } from "react-native";
+import React, { useEffect, useRef } from "react";
+import { Animated, Image, StyleSheet, Text, View } from "react-native";
 import { lightTheme } from "../src/theme/colors";
 
 export default function SplashScreen() {
   const fetchRides = useRideStore((s) => s.fetchRides);
   const router = useRouter();
-  const fadeAnim = React.useRef(new Animated.Value(0)).current;
+  const fadeAnim = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
     Animated.timing(fadeAnim, {
       toValue: 1,
-      duration: 1000,
+      duration: 1200,
       useNativeDriver: true,
     }).start();
+
     fetchRides();
 
     const timeout = setTimeout(() => {
       router.replace("/home");
-    }, 2000);
+    }, 2200);
+
     return () => clearTimeout(timeout);
   }, []);
 
   return (
     <View style={styles.container}>
-      <Animated.View style={{ opacity: fadeAnim }}>
-        <Text style={styles.logo}>🌱</Text>
+      <Animated.View style={[styles.content, { opacity: fadeAnim }]}>
+        <Image
+          source={require("../assets/images/logo.png")} // 👈 your eco logo
+          style={styles.logo}
+          resizeMode="contain"
+        />
         <Text style={styles.title}>GreenRide</Text>
         <Text style={styles.subtitle}>Eco-Friendly Transportation</Text>
       </Animated.View>
@@ -41,7 +47,22 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  logo: { fontSize: 80, marginBottom: 16 },
-  title: { fontSize: 36, fontWeight: "bold", color: "#FFF" },
-  subtitle: { fontSize: 16, color: "#FFF", opacity: 0.9 },
+  content: {
+    alignItems: "center",
+  },
+  logo: {
+    width: 100,
+    height: 100,
+    marginBottom: 20,
+  },
+  title: {
+    fontSize: 36,
+    fontWeight: "bold",
+    color: "#FFFFFF",
+  },
+  subtitle: {
+    fontSize: 16,
+    color: "#FFFFFF",
+    opacity: 0.9,
+  },
 });
