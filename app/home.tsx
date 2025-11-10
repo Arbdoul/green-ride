@@ -70,17 +70,17 @@ export default function HomeScreen() {
 
   if (loading || !userLocation) {
     return (
-      <SafeAreaProvider
+      <View
         style={[
           styles.container,
           { justifyContent: "center", alignItems: "center" },
         ]}
       >
         <ActivityIndicator size="large" color={theme.primary} />
-        <Text style={{ color: theme.text, marginTop: 10 }}>
+        {/* <Text style={{ color: theme.text, marginTop: 10 }}>
           Fetching your location...
-        </Text>
-      </SafeAreaProvider>
+        </Text> */}
+      </View>
     );
   }
 

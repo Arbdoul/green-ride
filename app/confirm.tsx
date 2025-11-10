@@ -1,9 +1,9 @@
+import { CustomButton } from "@/src/components/CustomButton";
 import { Ionicons } from "@expo/vector-icons";
 import { router, useRouter } from "expo-router";
 import React, { useEffect } from "react";
 import { Alert, StyleSheet, Text, View } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { Button } from "../src/components/button";
 import { useRideStore } from "../src/store/RideStore";
 import { darkTheme, lightTheme } from "../src/theme/colors";
 
@@ -129,8 +129,8 @@ export default function ConfirmScreen() {
         </View>
 
         <View style={styles.buttonContainer}>
-          <Button title="Confirm Booking" onPress={handleConfirm} />
-          <Button
+          <CustomButton title="Confirm Booking" onPress={handleConfirm} />
+          <CustomButton
             title="Cancel"
             onPress={() => navigation.back()}
             variant="secondary"
