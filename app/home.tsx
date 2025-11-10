@@ -5,6 +5,7 @@ import { StatusBar } from "expo-status-bar";
 import React, { useEffect, useMemo, useState } from "react";
 import {
   ActivityIndicator,
+  Alert,
   FlatList,
   Platform,
   StyleSheet,
@@ -26,12 +27,15 @@ export default function HomeScreen() {
   const inset = useSafeAreaInsets();
   const router = useRouter();
 
-  const [userLocation, setUserLocation] = useState<{
-    latitude: number;
-    longitude: number;
-  } | null>(null);
+  // ✅ Default location (fallback)
+  const DEFAULT_LOCATION = {
+    latitude: 37.78825,
+    longitude: -122.4324,
+  };
 
+  const [userLocation, setUserLocation] = useState(DEFAULT_LOCATION);
   const [loading, setLoading] = useState(true);
+  const [locationError, setLocationError] = useState(false);
 
   const destination = {
     latitude: 37.7949,
@@ -44,23 +48,74 @@ export default function HomeScreen() {
   );
 
   useEffect(() => {
-    (async () => {
-      // Request location permission
-      let { status } = await Location.requestForegroundPermissionsAsync();
-      if (status !== "granted") {
-        console.log("Permission to access location was denied");
-        setLoading(false);
-        return;
-      }
+    let isMounted = true;
 
-      // Get the user's current position
-      let location = await Location.getCurrentPositionAsync({});
-      setUserLocation({
-        latitude: location.coords.latitude,
-        longitude: location.coords.longitude,
-      });
-      setLoading(false);
-    })();
+    const getLocation = async () => {
+      try {
+        const { status } = await Location.requestForegroundPermissionsAsync();
+
+        if (status !== "granted") {
+          console.log("⚠️ Location permission denied");
+          if (isMounted) {
+            setLocationError(true);
+            setLoading(false);
+            Alert.alert(
+              "Location Access",
+              "Location permission is required to show nearby rides. Using default location.",
+              [{ text: "OK" }]
+            );
+          }
+          return;
+        }
+
+        console.log("✅ Permission granted, fetching location...");
+
+        // ✅ Get current location with timeout
+        const locationPromise = Location.getCurrentPositionAsync({
+          accuracy: Location.Accuracy.Balanced, // Changed from High to Balanced
+          timeInterval: 5000,
+          distanceInterval: 10,
+        });
+
+        const timeoutPromise = new Promise((_, reject) =>
+          setTimeout(() => reject(new Error("Location timeout")), 10000)
+        );
+
+        const location = (await Promise.race([
+          locationPromise,
+          timeoutPromise,
+        ])) as Location.LocationObject;
+
+        if (isMounted && location) {
+          setUserLocation({
+            latitude: location.coords.latitude,
+            longitude: location.coords.longitude,
+          });
+          setLocationError(false);
+        }
+      } catch (error) {
+        console.error("Error fetching location:", error);
+        if (isMounted) {
+          setLocationError(true);
+          // Use default location on error
+          Alert.alert(
+            "Location Error",
+            "Unable to get your location. Using default location.",
+            [{ text: "OK" }]
+          );
+        }
+      } finally {
+        if (isMounted) {
+          setLoading(false);
+        }
+      }
+    };
+
+    getLocation();
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   const handleBookRide = (ride: Ride) => {
@@ -68,18 +123,22 @@ export default function HomeScreen() {
     router.push("/confirm");
   };
 
-  if (loading || !userLocation) {
+  if (loading) {
     return (
       <View
         style={[
           styles.container,
-          { justifyContent: "center", alignItems: "center" },
+          {
+            backgroundColor: theme.background,
+            justifyContent: "center",
+            alignItems: "center",
+          },
         ]}
       >
         <ActivityIndicator size="large" color={theme.primary} />
-        {/* <Text style={{ color: theme.text, marginTop: 10 }}>
-          Fetching your location...
-        </Text> */}
+        <Text style={{ color: theme.text, marginTop: 10 }}>
+          Loading rides...
+        </Text>
       </View>
     );
   }
@@ -102,7 +161,9 @@ export default function HomeScreen() {
           Available Rides
         </Text>
         <Text style={[styles.subtitle, { color: theme.textSecondary }]}>
-          Choose your eco-friendly ride
+          {locationError
+            ? "Showing default location"
+            : "Choose your eco-friendly ride"}
         </Text>
       </View>
 
@@ -116,8 +177,8 @@ export default function HomeScreen() {
             longitudeDelta: 0.05,
           }}
           customMapStyle={mapStyle}
-          showsUserLocation={true}
-          followsUserLocation={true}
+          showsUserLocation={!locationError}
+          followsUserLocation={!locationError}
         >
           <Marker
             coordinate={userLocation}
@@ -138,6 +199,7 @@ export default function HomeScreen() {
         renderItem={({ item }) => (
           <RideCard ride={item} onPress={() => handleBookRide(item)} />
         )}
+        contentContainerStyle={{ paddingBottom: 35 }}
       />
     </SafeAreaProvider>
   );
