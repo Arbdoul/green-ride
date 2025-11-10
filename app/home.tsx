@@ -27,7 +27,6 @@ export default function HomeScreen() {
   const inset = useSafeAreaInsets();
   const router = useRouter();
 
-  // ✅ Default location (fallback)
   const DEFAULT_LOCATION = {
     latitude: 37.78825,
     longitude: -122.4324,
@@ -67,10 +66,6 @@ export default function HomeScreen() {
           }
           return;
         }
-
-        console.log("✅ Permission granted, fetching location...");
-
-        // ✅ Get current location with timeout
         const locationPromise = Location.getCurrentPositionAsync({
           accuracy: Location.Accuracy.Balanced, // Changed from High to Balanced
           timeInterval: 5000,
