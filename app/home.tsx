@@ -194,7 +194,7 @@ export default function HomeScreen() {
         renderItem={({ item }) => (
           <RideCard ride={item} onPress={() => handleBookRide(item)} />
         )}
-        contentContainerStyle={{ paddingBottom: 35 }}
+        contentContainerStyle={{ paddingBottom: 45 }}
       />
     </SafeAreaProvider>
   );

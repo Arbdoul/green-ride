@@ -1,0 +1,194 @@
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pirate Pet Shop</title>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Courier New", Courier, monospace;
+        margin: 30px;
+        background-color: #c4a484;
+      }
+
+      header {
+        background-color: #8b4513;
+        padding: 20px;
+        text-align: center;
+        border: 10px ridge #daa520;
+      }
+
+      .pirate-flag {
+        font-size: 50px;
+        background-color: black;
+        margin: 10px 0;
+        padding: 10px 40px;
+        border-radius: 10px;
+        border: 3px solid #daa520;
+        width: fit-content;
+        justify-self: center;
+      }
+
+      h1 {
+        font-size: 60px;
+        color: #daa520;
+        margin: 0;
+      }
+
+      nav {
+        background-color: #4d2e1b;
+        padding: 15px;
+        margin: 20px 0;
+        border: 3px solid #daa520;
+        text-align: center;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-size: 22px;
+        background-color: #8b4513;
+        padding: 10px 20px;
+        margin: 0 10px;
+        border: 3px solid #daa520;
+      }
+
+      nav a:hover {
+        background-color: #daa520;
+        color: #8b4513;
+      }
+
+      .pirate-saying {
+        background-color: black;
+        border: 6px dashed #daa520;
+        padding: 20px;
+        color: #daa520;
+        text-align: center;
+        font-size: 30px;
+      }
+
+      .animal {
+        background-color: #2e8b57;
+        padding: 30px;
+        border: 12px solid #8b4513;
+        margin: 30px 0;
+      }
+
+      .animal h2 {
+        color: #daa520;
+        font-size: 48px;
+        text-align: center;
+        background-color: black;
+        border: 6px solid #daa520;
+        padding: 10px 50px;
+      }
+
+      .pet-card {
+        background-color: #f4e4c1;
+        width: 270px;
+        margin: 15px;
+        padding: 20px;
+        border: 3px solid #8b4513;
+        display: inline-block;
+        text-align: center;
+      }
+
+      .pet-card img {
+        width: 200px;
+        height: 200px;
+        border: 8px solid #daa520;
+        margin-bottom: 15px;
+      }
+
+      .pet-name {
+        font-size: 24px;
+        font-weight: bold;
+        color: #8b4513;
+        margin: 15px 0 5px 0;
+      }
+
+      .ship-crew {
+        background-color: #1e3f5e;
+        padding: 30px;
+        border: 10px solid #daa520;
+        margin: 30px 0;
+      }
+
+      .section {
+        padding: 40px;
+        margin: 30px 0;
+        border: 5px solid #8b4513;
+        background-color: #f4e4c1;
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="pirate-flag">🏴‍☠️ 🦜 🏴‍☠️</div>
+      <h1>PIRATE PET SHOP</h1>
+    </header>
+
+    <nav>
+      <a href="#ship-pets">Ship Pets</a>
+      <a href="#crew-members">Crew Members</a>
+      <a href="#pirate-gear">Pirate Gear</a>
+      <a href="#treasure">Treasure</a>
+      <a href="#contact">Contact the Captain</a>
+    </nav>
+
+    <div class="pirate-saying">
+      🦜 A pet on the ship is better than gold! 🦜
+    </div>
+
+    <!-- SHIP PETS -->
+    <div class="animal" id="ship-pets">
+      <h2>SHIP PETS FOR SALE</h2>
+
+      <div class="pet-card">
+        <img src="pirate-cat.jpg" alt="Pirate Cat" />
+        <div class="pet-name">ONE-EYE JACK</div>
+        <div class="pet-type">Treasure Monkey</div>
+        <div class="pet-price">75 Gold Coins</div>
+        <button class="buy-pet">Buy me</button>
+      </div>
+    </div>
+
+    <!-- CREW MEMBERS -->
+    <div class="ship-crew" id="crew-members">
+      <h2>⚓ CREW JOBS FOR PETS ⚓</h2>
+
+      <div class="crew-job">
+        <div class="job-icon">👀</div>
+        <div class="job-name">LOOKOUT</div>
+        <div class="job-animal">Best with: Parrot</div>
+        <p>Sees land first!</p>
+      </div>
+    </div>
+
+    <!-- PIRATE GEAR -->
+    <div class="section" id="pirate-gear">
+      <h2>🗡️ PIRATE GEAR</h2>
+      <p>Cutlasses, hats, and hooks for your brave pets!</p>
+    </div>
+
+    <!-- TREASURE -->
+    <div class="section" id="treasure">
+      <h2>💰 TREASURE</h2>
+      <p>Gold coins, jewels, and hidden loot await!</p>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="section" id="contact">
+      <h2>📜 CONTACT THE CAPTAIN</h2>
+      <p>Send a message by carrier parrot 🦜</p>
+    </div>
+  </body>
+</html>
+```

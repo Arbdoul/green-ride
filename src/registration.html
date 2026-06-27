@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        background-color: aquamarine;
+      }
+      .form {
+        background: white;
+        width: 320px;
+        padding: 25px;
+        margin: 80px auto;
+      }
+      h2 {
+        text-align: center;
+      }
+      label {
+        display: block;
+        margin-top: 15px;
+        font-weight: bold;
+      }
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+      }
+      input:focus,
+      select:focus,
+      textarea:focus {
+        border-color: blueviolet;
+        outline: none;
+      }
+      .radio,
+      .checkbox {
+        margin-top: 5px;
+      }
+      .radio input,
+      .checkbox input {
+        margin-right: 5px;
+        width: auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <form class="form">
+      <h2>Register</h2>
+
+      <label>Full name</label>
+      <input type="text" placeholder="Enter full name" />
+
+      <label>Email</label>
+      <input type="email" placeholder="Enter email" />
+
+      <label>Password</label>
+      <input type="password" placeholder="Enter password" />
+
+      <label>Phone number</label>
+      <input type="tel" placeholder="Enter phone number" />
+
+      <label>Date of birth</label>
+      <input type="date" />
+
+      <label>Gender</label>
+      <div class="radio">
+        <input type="radio" name="gender" />Male
+        <input type="radio" name="gender" />Female
+      </div>
+
+      <label>Country</label>
+      <select>
+        <option>Nigeria</option>
+        <option>Ghana</option>
+        <option>Togo</option>
+        <option>UK</option>
+      </select>
+
+      <label>Upload Profile Picture</label>
+      <input type="file" />
+
+      <label>About you</label>
+      <textarea rows="3" placeholder="Tell us about yourself"></textarea>
+
+      <div class="checkbox">
+        <input type="checkbox" />I agree to the terms and conditions
+      </div>
+
+      <button>Register</button>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crazy Socks Shop</title>
+    <style>
+      body {
+        font-family: "Comic Sans MS", cursive, sans-serif;
+        margin: 20px;
+        background-color: #fff9e6;
+      }
+
+      header {
+        background-color: #ff9900;
+        padding: 20px;
+        text-align: center;
+        border-radius: 50px 50px 0 0;
+        border-bottom: 5px dashed #ff66b2;
+      }
+
+      h1 {
+        color: #ff66b2;
+        font-size: 48px;
+        margin: 0;
+        text-shadow: 3px 3px 0 #ffcc00;
+      }
+
+      .tagline {
+        color: white;
+        font-size: 20px;
+        background-color: #66ccff;
+        display: inline-block;
+        padding: 10px 30px;
+        border-radius: 30px;
+      }
+
+      nav {
+        background-color: #66ccff;
+        padding: 15px;
+        text-align: center;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 25px;
+        font-size: 18px;
+        font-weight: bold;
+        background-color: #ff66b2;
+        padding: 8px 20px;
+        border-radius: 20px;
+        border: 2px solid white;
+      }
+
+      nav a:hover {
+        background-color: #ff9900;
+      }
+
+      .sale-banner {
+        background-color: #ff66b2;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        font-size: 32px;
+        font-weight: bold;
+        border: 8px dotted #ffcc00;
+        margin: 20px 0;
+      }
+
+      .sale-banner span {
+        background-color: #ffcc00;
+        color: #ff66b2;
+        padding: 5px 20px;
+        border-radius: 50px;
+      }
+
+      .socks-container {
+        margin: 30px 0;
+      }
+
+      .sock-card {
+        background-color: white;
+        width: 300px;
+        display: inline-block;
+        margin: 15px;
+        padding: 20px;
+        border: 5px solid #ff9900;
+        border-radius: 40px 40px 20px 20px;
+        text-align: center;
+        box-shadow: 10px 10px 0 #ffcc00;
+      }
+
+      .sock-card img {
+        width: 200px;
+        height: 200px;
+        border: 5px dotted #ff66b2;
+        border-radius: 100px;
+        background-color: #fff0f5;
+        object-fit: cover;
+      }
+
+      .sock-card h3 {
+        color: #ff66b2;
+        font-size: 28px;
+        margin: 10px 0;
+      }
+
+      .price {
+        font-size: 36px;
+        color: #ff9900;
+        font-weight: bold;
+        background-color: #fff0f5;
+        display: inline-block;
+        padding: 10px 20px;
+        border-radius: 30px;
+        border: 3px solid #66ccff;
+      }
+
+      .old-price {
+        text-decoration: line-through;
+        color: gray;
+        font-size: 20px;
+      }
+
+      .buy-button {
+        background-color: #66ccff;
+        color: white;
+        border: none;
+        font-size: 24px;
+        padding: 15px 40px;
+        border-radius: 50px;
+        margin-top: 15px;
+        border: 3px solid white;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      .buy-button:hover {
+        background-color: #ff9900;
+      }
+
+      .features {
+        background-color: #ffcc00;
+        padding: 30px;
+        margin: 30px 0;
+        border: 10px ridge #ff66b2;
+      }
+
+      .feature-box {
+        background-color: white;
+        width: 250px;
+        display: inline-block;
+        margin: 10px 20px;
+        padding: 20px;
+        text-align: center;
+        border-radius: 30px;
+        border: 4px solid #66ccff;
+      }
+
+      .feature-box h3 {
+        color: #ff66b2;
+        font-size: 24px;
+        margin: 10px 0;
+      }
+
+      .emoji {
+        font-size: 60px;
+      }
+
+      .reviews {
+        background-color: #e6f7ff;
+        padding: 30px;
+        border: 8px solid #ff9900;
+      }
+
+      .review-card {
+        background-color: white;
+        width: 400px;
+        display: inline-block;
+        margin: 15px;
+        padding: 25px;
+        border-radius: 30px 30px 30px 0;
+        border-left: 20px solid #ff66b2;
+      }
+
+      .stars {
+        color: #ffcc00;
+        font-size: 28px;
+      }
+
+      .review-name {
+        color: #ff9900;
+        font-weight: bold;
+        font-size: 20px;
+      }
+
+      footer {
+        background-color: #333333;
+        color: white;
+        padding: 30px;
+        text-align: center;
+        margin-top: 40px;
+        border-radius: 0 0 50px 50px;
+      }
+
+      .footer-fun {
+        color: #ffcc00;
+        font-size: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>🧦 CRAZY SOCKS 🧦</h1>
+      <div class="tagline">Your feet will thank you!</div>
+    </header>
+
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Socks</a>
+      <a href="#">Silly Socks</a>
+      <a href="#">Funny Feet</a>
+      <a href="#">Contact</a>
+    </nav>
+
+    <div class="sale-banner">
+      🎉 SALE! SALE! SALE! 🎉 <span>50% OFF</span> EVERYTHING!
+    </div>
+
+    <div class="socks-container">
+      <div class="sock-card">
+        <img
+          src="https://images.unsplash.com/photo-1586350977771-b3b4abdda3fc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+          alt="Striped rainbow socks"
+        />
+        <h3>Rainbow Stripes</h3>
+        <p><span class="old-price">$20</span> <span class="price">$10</span></p>
+        <button class="buy-button">BUY NOW!</button>
+      </div>
+
+      <div class="sock-card">
+        <img
+          src="https://images.unsplash.com/photo-1606041011872-596597976b25?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+          alt="Polka dot socks"
+        />
+        <h3>Polka Party</h3>
+        <p><span class="old-price">$18</span> <span class="price">$9</span></p>
+        <button class="buy-button">BUY NOW!</button>
+      </div>
+
+      <div class="sock-card">
+        <img
+          src="https://images.unsplash.com/photo-1606902965551-dce093cda6e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+          alt="Funny animal socks"
+        />
+        <h3>Funny Animals</h3>
+        <p><span class="old-price">$22</span> <span class="price">$11</span></p>
+        <button class="buy-button">BUY NOW!</button>
+      </div>
+
+      <div class="sock-card">
+        <img
+          src="https://images.unsplash.com/photo-1544441892-0f9592c6c6b6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+          alt="Food themed socks"
+        />
+        <h3>Pizza Party</h3>
+        <p><span class="old-price">$25</span> <span class="price">$12</span></p>
+        <button class="buy-button">BUY NOW!</button>
+      </div>
+    </div>
+
+    <div class="features">
+      <h2 style="text-align: center; color: #ff66b2; font-size: 36px">
+        WHY OUR SOCKS ARE SO COOL!
+      </h2>
+
+      <div class="feature-box">
+        <div class="emoji">🧦✨</div>
+        <h3>Super Soft</h3>
+        <p>Like clouds for your feet!</p>
+      </div>
+
+      <div class="feature-box">
+        <div class="emoji">🌈🎨</div>
+        <h3>Crazy Colors</h3>
+        <p>40 different colors!</p>
+      </div>
+
+      <div class="feature-box">
+        <div class="emoji">💪🦶</div>
+        <h3>Super Strong</h3>
+        <p>No holes, ever!</p>
+      </div>
+
+      <div class="feature-box">
+        <div class="emoji">🎁💝</div>
+        <h3>Perfect Gift</h3>
+        <p>For silly people!</p>
+      </div>
+    </div>
+
+    <div class="reviews">
+      <h2 style="text-align: center; color: #ff66b2; font-size: 36px">
+        HAPPY CUSTOMERS!
+      </h2>
+
+      <div class="review-card">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>"I wear different socks every day! So fun!"</p>
+        <p class="review-name">- Sarah, age 9</p>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>"My pizza socks are my favorite thing ever!"</p>
+        <p class="review-name">- Mike, age 7</p>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>"Grandpa loved his silly monkey socks!"</p>
+        <p class="review-name">- Emma, age 10</p>
+      </div>
+    </div>
+
+    <footer>
+      <p class="footer-fun">🧦 Don't be boring, wear something screaming! 🧦</p>
+      <p>📍 123 Silly Street, Sockville</p>
+      <p>📞 Call us: 1-800-SILLY-SOCKS</p>
+      <p>✉️ Email: crazy@socks.com</p>
+      <p style="margin-top: 30px">
+        © 2024 Crazy Socks Shop - The funnest socks in the world!
+      </p>
+    </footer>
+  </body>
+</html>

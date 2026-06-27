@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Registration Form</title>
+    <style>
+      body {
+        background-color: aquamarine;
+        font-family: Arial, sans-serif;
+      }
+
+      .form {
+        background: white;
+        width: 350px;
+        padding: 25px;
+        margin: 50px auto;
+        border-radius: 8px;
+      }
+
+      h2 {
+        text-align: center;
+      }
+
+      label {
+        display: block;
+        margin-top: 15px;
+        font-weight: bold;
+      }
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+
+      input:focus,
+      select:focus,
+      textarea:focus {
+        border-color: #007bff;
+        outline: none;
+      }
+
+      .radio-group,
+      .checkbox-group {
+        margin-top: 5px;
+      }
+
+      .radio-group input,
+      .checkbox-group input {
+        width: auto;
+        margin-right: 5px;
+      }
+
+      button {
+        margin-top: 20px;
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+
+  <body>
+    <form class="form">
+      <h2>Register</h2>
+
+      <!-- Text -->
+      <label>Full Name</label>
+      <input type="text" placeholder="Enter your full name" />
+
+      <!-- Email -->
+      <label>Email</label>
+      <input type="email" placeholder="Enter your email" />
+
+      <!-- Password -->
+      <label>Password</label>
+      <input type="password" placeholder="Enter password" />
+
+      <!-- Phone -->
+      <label>Phone Number</label>
+      <input type="tel" placeholder="Enter phone number" />
+
+      <!-- Date -->
+      <label>Date of Birth</label>
+      <input type="date" />
+
+      <!-- Radio buttons -->
+      <label>Gender</label>
+      <div class="radio-group">
+        <input type="radio" name="gender" /> Male
+        <input type="radio" name="gender" /> Female
+      </div>
+
+      <!-- Select -->
+      <label>Country</label>
+      <select>
+        <option>Select country</option>
+        <option>Nigeria</option>
+        <option>Ghana</option>
+        <option>UK</option>
+        <option>USA</option>
+      </select>
+
+      <!-- File upload -->
+      <label>Upload Profile Picture</label>
+      <input type="file" />
+
+      <!-- Textarea -->
+      <label>About You</label>
+      <textarea rows="3" placeholder="Tell us about yourself"></textarea>
+
+      <!-- Checkbox -->
+      <div class="checkbox-group">
+        <input type="checkbox" /> I agree to the terms and conditions
+      </div>
+
+      <button>Register</button>
+    </form>
+  </body>
+</html>

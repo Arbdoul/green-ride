@@ -1,0 +1,659 @@
+<!-- <!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+      }
+      header {
+        background-color: aquamarine;
+      }
+      .logo {
+        display: flex;
+        justify-content: center;
+      }
+      h1 {
+        color: red;
+      }
+      nav {
+        margin-top: 15px;
+        display: flex;
+        justify-content: center;
+        column-gap: 20px;
+        padding-bottom: 30px;
+      }
+      nav a {
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+      }
+
+      nav a:hover {
+        color: red;
+      }
+
+      section {
+        padding: 40px 20px;
+      }
+      .discription {
+        text-align: center;
+        background-color: beige;
+      }
+
+      .discription h3 {
+        color: red;
+      }
+
+      .button {
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 25px;
+        margin-top: 20px;
+        cursor: pointer;
+      }
+      .pet-card {
+        border: 2px solid aquamarine;
+        border-radius: 10px;
+        padding: 20px;
+        width: 260px;
+        text-align: center;
+      }
+
+      .pet-card img {
+        width: 90%;
+      }
+      .pets-container {
+        display: flex;
+        gap: 20px;
+      }
+
+      .benefits {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      .benefit {
+        background-color: white;
+        border-radius: 10px;
+        padding: 20px;
+        width: 250px;
+      }
+      .contact-form {
+        max-width: 500px;
+        margin: 30px auto 0;
+      }
+
+      .contact-form input,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid aqua;
+        border-radius: 5px;
+      }
+      .contact-form button {
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 25px;
+        cursor: pointer;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <h1>🐾 Furry Friends Adoption</h1>
+      </div>
+
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#meetpets">Meet pets</a>
+        <a href="aboutus">About us</a>
+        <a href="contactus">Contact us</a>
+      </nav>
+    </header>
+
+    <section class="discription">
+      <h3>Find Your New Best Friend</h3>
+      <p>We help loving pets find forever homes</p>
+
+      <button class="button">Adopt Today</button>
+    </section>
+
+    <section>
+      <h2 style="text-align: center; color: red">Pet waiting for Homes</h2>
+
+      <div class="pets-container">
+        <div class="pet-card">
+          <img src="whiteDogAndCat.jpeg" />
+
+          <h3>White Dog and Cat</h3>
+
+          <p>Male | 6 months old</p>
+
+          <p>Loves: Cuddles and playing</p>
+
+          <button>Adpote me</button>
+        </div>
+
+        <div class="pet-card">
+          <img src="whiteDogAndCat.jpeg" />
+
+          <h3>White Dog and Cat</h3>
+
+          <p>Male | 6 months old</p>
+
+          <p>Loves: Cuddles and playing</p>
+
+          <button>Adpote me</button>
+        </div>
+
+        <div class="pet-card">
+          <img src="whiteDogAndCat.jpeg" />
+
+          <h3>White Dog and Cat</h3>
+
+          <p>Male | 6 months old</p>
+
+          <p>Loves: Cuddles and playing</p>
+
+          <button>Adpote me</button>
+        </div>
+      </div>
+    </section>
+
+    <section style="background-color: bisque">
+      <h2 style="text-align: center; color: red">Happy Adoption Stories</h2>
+
+      <div class="pets-container">
+        <div class="pet-card">
+          <img src="whiteDogAndCat.jpeg" style="border-radius: 60px" />
+
+          <h3>The Clark Family</h3>
+
+          <p>Bingo</p>
+
+          <p><i>Bingo loves playing fetch and cuddling with his family.</i></p>
+        </div>
+
+        <div class="pet-card">
+          <img src="whiteDogAndCat.jpeg" />
+
+          <h3>White Dog and Cat</h3>
+
+          <p>Male | 6 months old</p>
+
+          <p>Loves: Cuddles and playing</p>
+
+          <button>Adpote me</button>
+        </div>
+
+        <div class="pet-card">
+          <img src="whiteDogAndCat.jpeg" />
+
+          <h3>White Dog and Cat</h3>
+
+          <p>Male | 6 months old</p>
+
+          <p>Loves: Cuddles and playing</p>
+
+          <button>Adpote me</button>
+        </div>
+      </div>
+    </section>
+
+    <section style="background-color: cadetblue">
+      <h2 style="text-align: center; color: aqua">Why Adopt From Us?</h2>
+      <div class="benefits">
+        <div class="benefit">
+          <h3>Save a life</h3>
+          <p>
+            Adopting a pet gives them a second chance at life and helps reduce
+            overpopulation.
+          </p>
+        </div>
+        <div class="benefit">
+          <h3>Healthy pet</h3>
+          <p>All our pets are vaccinated and health checked.</p>
+        </div>
+
+        <div class="benefit">
+          <h3>Life time support</h3>
+          <p>We're here to help you and your pet settle in.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 style="text-align: center; color: red">Contact Us</h2>
+
+      <div class="contact-form">
+        <input type="text" placeholder="Your Name" />
+        <input type="email" placeholder="Your Email" />
+
+        <textarea placeholder="Your Message" rows="5"></textarea>
+
+        <button type="submit">Send Message</button>
+      </div>
+    </section>
+
+    <footer
+      style="background-color: black; padding: 30px 20px; text-align: center"
+    >
+      <p style="color: white">Made with for animals in need</p>
+    </footer>
+  </body>
+</html> -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF--8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monster Ice Cream</title>
+    <style>
+      body {
+        font-family: "Verdana", sans-serif;
+        margin: 30px;
+        background-color: #d9b38c;
+      }
+
+      header {
+        background-color: #993366;
+        padding: 30px;
+        text-align: center;
+        border: 8px dotted #ffcc00;
+        border-radius: 100px 100px 30px 30px;
+      }
+
+      h1 {
+        color: #ffcc00;
+        font-size: 60px;
+        margin: 0;
+      }
+
+      .monster {
+        font-size: 80px;
+      }
+
+      .header-note {
+        background-color: #66ccff;
+        color: white;
+        font-size: 24px;
+        padding: 10px;
+        border-radius: 40px;
+        margin-top: 10px;
+      }
+
+      nav {
+        background-color: #ff9900;
+        padding: 15px;
+        margin: 20px 0;
+        text-align: center;
+        border: 6px solid #993366;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 30px;
+        font-size: 20px;
+        background-color: #993366;
+        padding: 10px 25px;
+        border-radius: 40px;
+        border: 3px solid #ffcc00;
+      }
+
+      nav a:hover {
+        background-color: #ff66b2;
+      }
+
+      .monster-message {
+        background-color: #66cc33;
+        color: white;
+        font-size: 28px;
+        padding: 20px;
+        text-align: center;
+        border: 12px ridge #ff9900;
+        margin: 30px 0;
+      }
+
+      .monster-message span {
+        background-color: white;
+        color: #993366;
+        padding: 10px 30px;
+        border-radius: 60px;
+        font-weight: bold;
+      }
+
+      .flavors {
+        background-color: #ffccff;
+        padding: 30px;
+        border: 10px dashed #993366;
+        margin: 30px 0;
+      }
+
+      .flavors h2 {
+        color: #993366;
+        font-size: 40px;
+        text-align: center;
+        margin-top: 0;
+      }
+
+      .flavor-card {
+        background-color: white;
+        width: 280px;
+        display: inline-block;
+        margin: 15px;
+        padding: 20px;
+        border: 5px solid #ff9900;
+        border-radius: 60px 60px 20px 20px;
+        text-align: center;
+        vertical-align: top;
+      }
+
+      .flavor-card img {
+        width: 200px;
+        height: 200px;
+        border: 8px solid #993366;
+        border-radius: 80px;
+        object-fit: cover;
+      }
+
+      .flavor-name {
+        color: #ff66b2;
+        font-size: 30px;
+        font-weight: bold;
+        margin: 15px 0;
+      }
+
+      .flavor-desc {
+        color: #666666;
+        font-size: 16px;
+        background-color: #ffeecc;
+        padding: 10px;
+        border-radius: 30px;
+      }
+
+      .price-tag {
+        background-color: #ff9900;
+        color: white;
+        font-size: 28px;
+        font-weight: bold;
+        padding: 10px;
+        border-radius: 50px;
+        width: 150px;
+        margin: 15px auto;
+        border: 4px solid #993366;
+      }
+
+      .order-button {
+        background-color: #66cc33;
+        color: white;
+        border: none;
+        font-size: 24px;
+        padding: 15px 30px;
+        border-radius: 60px;
+        border: 4px solid white;
+        cursor: pointer;
+        font-weight: bold;
+        margin: 10px 0;
+      }
+
+      .order-button:hover {
+        background-color: #ff66b2;
+      }
+
+      .toppings {
+        background-color: #66ccff;
+        padding: 30px;
+        margin: 30px 0;
+        border: 8px solid #ff9900;
+      }
+
+      .toppings h2 {
+        color: #993366;
+        font-size: 36px;
+        text-align: center;
+      }
+
+      .topping-item {
+        background-color: white;
+        width: 180px;
+        display: inline-block;
+        margin: 10px;
+        padding: 20px;
+        text-align: center;
+        border-radius: 40px;
+        border: 4px solid #ff66b2;
+      }
+
+      .topping-item .emoji-big {
+        font-size: 50px;
+      }
+
+      .topping-item h3 {
+        color: #993366;
+        font-size: 22px;
+        margin: 10px 0;
+      }
+
+      .specials {
+        background-color: #ffcc00;
+        padding: 30px;
+        border: 12px double #993366;
+      }
+
+      .special-box {
+        background-color: white;
+        width: 400px;
+        display: inline-block;
+        margin: 20px;
+        padding: 20px;
+        border-radius: 80px 20px 80px 20px;
+        border: 8px solid #ff66b2;
+      }
+
+      .special-name {
+        color: #993366;
+        font-size: 32px;
+        font-weight: bold;
+      }
+
+      .special-price {
+        background-color: #ff9900;
+        color: white;
+        font-size: 28px;
+        padding: 10px;
+        border-radius: 40px;
+        display: inline-block;
+      }
+
+      footer {
+        background-color: #333333;
+        color: white;
+        padding: 30px;
+        text-align: center;
+        margin-top: 40px;
+        border-top: 20px solid #ffcc00;
+      }
+
+      .monster-feet {
+        color: #66cc33;
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="monster">👹👻🧟</div>
+      <h1>MONSTER ICE CREAM</h1>
+      <div class="header-note">We scream for ice cream!</div>
+    </header>
+
+    <nav>
+      <a href="#">Monster Menu</a>
+      <a href="#">Crazy Flavors</a>
+      <a href="#">Monster Deals</a>
+      <a href="#">Birthday Parties</a>
+    </nav>
+
+    <div class="monster-message">
+      <span>👅 TRY OUR MONSTER FLAVORS! 👅</span>
+    </div>
+
+    <div class="flavors">
+      <h2>👾 SCARY GOOD FLAVORS 👾</h2>
+
+      <div class="flavor-card">
+        <img
+          src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+          alt="Green monster ice cream"
+        />
+        <div class="flavor-name">GREEN MONSTER</div>
+        <div class="flavor-desc">Green apple with eyeball sprinkles!</div>
+        <div class="price-tag">$4</div>
+        <button class="order-button">EAT ME!</button>
+      </div>
+
+      <div class="flavor-card">
+        <img
+          src="https://images.unsplash.com/photo-1516559828984-fb3b99548b21?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+          alt="Purple monster ice cream"
+        />
+        <div class="flavor-name">PURPLE SLIME</div>
+        <div class="flavor-desc">Grape with gummy worms!</div>
+        <div class="price-tag">$5</div>
+        <button class="order-button">EAT ME!</button>
+      </div>
+
+      <div class="flavor-card">
+        <img
+          src="https://images.unsplash.com/photo-1580915411954-282cb1b0d780?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+          alt="Red monster ice cream"
+        />
+        <div class="flavor-name">RED FURY</div>
+        <div class="flavor-desc">Strawberry with monster teeth!</div>
+        <div class="price-tag">$5</div>
+        <button class="order-button">EAT ME!</button>
+      </div>
+
+      <div class="flavor-card">
+        <img
+          src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+          alt="Blue monster ice cream"
+        />
+        <div class="flavor-name">BLUE BEAST</div>
+        <div class="flavor-desc">Blueberry with monster chunks!</div>
+        <div class="price-tag">$6</div>
+        <button class="order-button">EAT ME!</button>
+      </div>
+
+      <div class="flavor-card">
+        <img
+          src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+          alt="Brown monster ice cream"
+        />
+        <div class="flavor-name">CHOCOLATE FUR</div>
+        <div class="flavor-desc">Chocolate with cookie fur!</div>
+        <div class="price-tag">$4</div>
+        <button class="order-button">EAT ME!</button>
+      </div>
+
+      <div class="flavor-card">
+        <img
+          src="https://images.unsplash.com/photo-1488900128323-21503983a07e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+          alt="Pink monster ice cream"
+        />
+        <div class="flavor-name">PINK MONSTER</div>
+        <div class="flavor-desc">Cotton candy with horns!</div>
+        <div class="price-tag">$5</div>
+        <button class="order-button">EAT ME!</button>
+      </div>
+    </div>
+
+    <div class="toppings">
+      <h2>👻 MONSTER TOPPINGS 👻</h2>
+
+      <div class="topping-item">
+        <div class="emoji-big">👁️</div>
+        <h3>Eyeballs</h3>
+        <p>50 cents</p>
+      </div>
+
+      <div class="topping-item">
+        <div class="emoji-big">🦷</div>
+        <h3>Monster Teeth</h3>
+        <p>50 cents</p>
+      </div>
+
+      <div class="topping-item">
+        <div class="emoji-big">🕷️</div>
+        <h3>Spider Sprinkles</h3>
+        <p>25 cents</p>
+      </div>
+
+      <div class="topping-item">
+        <div class="emoji-big">🦴</div>
+        <h3>Bone Bits</h3>
+        <p>75 cents</p>
+      </div>
+
+      <div class="topping-item">
+        <div class="emoji-big">🧪</div>
+        <h3>Slime Sauce</h3>
+        <p>50 cents</p>
+      </div>
+
+      <div class="topping-item">
+        <div class="emoji-big">🦇</div>
+        <h3>Bat Wings</h3>
+        <p>$1</p>
+      </div>
+    </div>
+
+    <div class="specials">
+      <h2 style="color: #993366; font-size: 40px; text-align: center">
+        ⭐ MONSTER SPECIALS ⭐
+      </h2>
+
+      <div class="special-box">
+        <div class="special-name">THE FRANKENSTEIN</div>
+        <p>Green monster + purple slime + eyeballs + slime sauce</p>
+        <div class="special-price">$12</div>
+      </div>
+
+      <div class="special-box">
+        <div class="special-name">THE VAMPIRE</div>
+        <p>Red fury + chocolate fur + teeth + bat wings</p>
+        <div class="special-price">$13</div>
+      </div>
+
+      <div class="special-box">
+        <div class="special-name">THE GHOST</div>
+        <p>Pink monster + blue beast + spider sprinkles + bone bits</p>
+        <div class="special-price">$14</div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="monster-feet">👣👣👣</div>
+      <p>📍 13 Monster Lane, Scary City</p>
+      <p>📞 1-800-EAT-MONSTER</p>
+      <p>Open every day! 11am - 8pm</p>
+      <p style="margin-top: 30px; color: #ffcc00">👹 Come in if you dare! 👹</p>
+      <p>© 2024 Monster Ice Cream - Est. 2024</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dino Diner</title>
+    <style>
+      body {
+        font-family: "Impact", fantasy;
+        margin: 30px;
+        background-color: #98b87c;
+      }
+
+      header {
+        background-color: #228b22;
+        padding: 30px;
+        text-align: center;
+        border: 15px ridge #8b4513;
+        border-radius: 100px 100px 0 0;
+      }
+
+      h1 {
+        color: #ffa500;
+        font-size: 80px;
+        margin: 0;
+        -webkit-text-stroke: 4px #8b4513;
+      }
+
+      .dino-prints {
+        font-size: 50px;
+        background-color: #8b4513;
+        padding: 10px;
+        letter-spacing: 20px;
+      }
+
+      nav {
+        background-color: #ffa500;
+        padding: 20px;
+        margin: 20px 0;
+        border: 8px solid #228b22;
+        text-align: center;
+      }
+
+      nav a {
+        color: #228b22;
+        text-decoration: none;
+        margin: 0 25px;
+        font-size: 24px;
+        background-color: white;
+        padding: 10px 30px;
+        border: 5px solid #8b4513;
+        border-radius: 40px;
+        display: inline-block;
+        font-weight: bold;
+      }
+
+      nav a:hover {
+        background-color: #8b4513;
+        color: white;
+        border-color: #ffa500;
+      }
+
+      .roar {
+        background-color: #8b4513;
+        color: #ffa500;
+        font-size: 48px;
+        padding: 20px;
+        text-align: center;
+        border: 12px dotted #228b22;
+        margin: 30px 0;
+      }
+
+      .menu {
+        background-color: #ffd700;
+        padding: 40px;
+        border: 20px groove #228b22;
+        margin: 30px 0;
+      }
+
+      .menu h2 {
+        color: #228b22;
+        font-size: 60px;
+        text-align: center;
+        margin: 0 0 40px 0;
+        background-color: #8b4513;
+        color: #ffa500;
+        padding: 20px;
+        border: 10px solid #ffa500;
+      }
+
+      .menu-item {
+        background-color: white;
+        width: 300px;
+        display: inline-block;
+        margin: 20px;
+        padding: 20px;
+        border: 12px solid #228b22;
+        border-radius: 80px 20px 80px 20px;
+        text-align: center;
+        vertical-align: top;
+      }
+
+      .menu-item img {
+        width: 250px;
+        height: 200px;
+        border: 10px solid #ffa500;
+        border-radius: 60px;
+        object-fit: cover;
+      }
+
+      .item-name {
+        color: #8b4513;
+        font-size: 36px;
+        font-weight: bold;
+        margin: 20px 0;
+      }
+
+      .item-desc {
+        color: #228b22;
+        font-size: 18px;
+        background-color: #ffd700;
+        padding: 15px;
+        border-radius: 40px;
+        font-weight: bold;
+      }
+
+      .item-price {
+        background-color: #8b4513;
+        color: #ffa500;
+        font-size: 40px;
+        padding: 15px;
+        margin: 20px 0;
+        border: 6px solid #ffa500;
+        display: inline-block;
+      }
+
+      .order-now {
+        background-color: #ffa500;
+        color: #8b4513;
+        border: none;
+        font-size: 28px;
+        padding: 20px 40px;
+        border: 6px solid white;
+        cursor: pointer;
+        font-weight: bold;
+        border-radius: 60px;
+      }
+
+      .order-now:hover {
+        background-color: #228b22;
+        color: white;
+      }
+
+      .dino-drinks {
+        background-color: #4682b4;
+        padding: 40px;
+        border: 15px dashed #ffa500;
+        margin: 30px 0;
+      }
+
+      .drink-card {
+        background-color: white;
+        width: 220px;
+        display: inline-block;
+        margin: 15px;
+        padding: 20px;
+        border: 8px solid #8b4513;
+        border-radius: 40px 40px 10px 10px;
+        text-align: center;
+      }
+
+      .drink-emoji {
+        font-size: 80px;
+      }
+
+      .drink-name {
+        color: #4682b4;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .drink-price {
+        background-color: #ffa500;
+        color: #8b4513;
+        font-size: 30px;
+        padding: 10px;
+        border-radius: 30px;
+        margin: 15px 0;
+      }
+
+      .kids-meals {
+        background-color: #ff6b8b;
+        padding: 40px;
+        border: 20px double #228b22;
+        margin: 30px 0;
+      }
+
+      .kids-box {
+        background-color: white;
+        width: 400px;
+        display: inline-block;
+        margin: 15px;
+        padding: 25px;
+        border: 10px solid #ffa500;
+        border-radius: 100px 100px 30px 30px;
+        text-align: center;
+      }
+
+      .kids-toy {
+        font-size: 70px;
+        background-color: #ffd700;
+        padding: 20px;
+        border-radius: 100px;
+      }
+
+      .kids-name {
+        color: #ff6b8b;
+        font-size: 32px;
+        font-weight: bold;
+      }
+
+      .kids-price {
+        color: #228b22;
+        font-size: 36px;
+        background-color: #ffa500;
+        padding: 15px;
+        border-radius: 50px;
+        margin: 15px 0;
+      }
+
+      .fossil-finds {
+        background-color: #deb887;
+        padding: 30px;
+        border: 15px dotted #8b4513;
+        text-align: center;
+      }
+
+      .fossil {
+        background-color: white;
+        width: 180px;
+        display: inline-block;
+        margin: 15px;
+        padding: 20px;
+        border: 8px solid #8b4513;
+        border-radius: 20px;
+      }
+
+      .fossil-emoji {
+        font-size: 60px;
+      }
+
+      .fossil-name {
+        color: #8b4513;
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      footer {
+        background-color: #228b22;
+        color: #ffa500;
+        padding: 40px;
+        text-align: center;
+        margin-top: 40px;
+        border: 20px ridge #8b4513;
+        font-size: 24px;
+      }
+
+      .trex {
+        font-size: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="dino-prints">🦶🦖🦶🦕🦶</div>
+      <h1>DINO DINER</h1>
+      <div class="dino-prints">🍖🌿🍖🌿🍖</div>
+    </header>
+
+    <nav>
+      <a href="#">T-REX MENU</a>
+      <a href="#">TRICERATOPS MEALS</a>
+      <a href="#">DINO DRINKS</a>
+      <a href="#">FOSSIL TOYS</a>
+      <a href="#">KIDS CAVE</a>
+    </nav>
+
+    <div class="roar">🦖 ROAR! TRY OUR JURASSIC BURGERS! 🦕</div>
+
+    <div class="menu">
+      <h2>🍔 DINOSAUR SIZE MEALS 🍔</h2>
+
+      <div class="menu-item">
+        <img
+          src="https://images.unsplash.com/photo-1550547660-d9450f859349?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+          alt="T-Rex burger"
+        />
+        <div class="item-name">T-REX BURGER</div>
+        <div class="item-desc">Three patties with volcano cheese!</div>
+        <div class="item-price">$25</div>
+        <button class="order-now">ROAR & ORDER</button>
+      </div>
+
+      <div class="menu-item">
+        <img
+          src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+          alt="Triceratops meal"
+        />
+        <div class="item-name">TRICERATOPS PLATE</div>
+        <div class="item-desc">Three horns of onion rings!</div>
+        <div class="item-price">$22</div>
+        <button class="order-now">ROAR & ORDER</button>
+      </div>
+
+      <div class="menu-item">
+        <img
+          src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+          alt="Brontosaurus bites"
+        />
+        <div class="item-name">BRONTOSAURUS BITES</div>
+        <div class="item-desc">Long neck chicken strips!</div>
+        <div class="item-price">$20</div>
+        <button class="order-now">ROAR & ORDER</button>
+      </div>
+
+      <div class="menu-item">
+        <img
+          src="https://images.unsplash.com/photo-1551782450-17144efb9c50?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+          alt="Pterodactyl wings"
+        />
+        <div class="item-name">PTERODACTYL WINGS</div>
+        <div class="item-desc">Spicy flying dinosaur wings!</div>
+        <div class="item-price">$18</div>
+        <button class="order-now">ROAR & ORDER</button>
+      </div>
+
+      <div class="menu-item">
+        <img
+          src="https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+          alt="Stegosaurus salad"
+        />
+        <div class="item-name">STEGOSAURUS SALAD</div>
+        <div class="item-desc">With spikey cucumber slices!</div>
+        <div class="item-price">$15</div>
+        <button class="order-now">ROAR & ORDER</button>
+      </div>
+
+      <div class="menu-item">
+        <img
+          src="https://images.unsplash.com/photo-1630383249896-424e482df921?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+          alt="Raptor nuggets"
+        />
+        <div class="item-name">RAPTOR NUGGETS</div>
+        <div class="item-desc">Clever girl chicken nuggets!</div>
+        <div class="item-price">$16</div>
+        <button class="order-now">ROAR & ORDER</button>
+      </div>
+    </div>
+
+    <div class="dino-drinks">
+      <h2 style="color: #ffa500; font-size: 48px; text-align: center">
+        🌋 VOLCANO DRINKS 🌋
+      </h2>
+
+      <div class="drink-card">
+        <div class="drink-emoji">🌋</div>
+        <div class="drink-name">LAVA FIZZ</div>
+        <div class="drink-price">$6</div>
+      </div>
+
+      <div class="drink-card">
+        <div class="drink-emoji">💧</div>
+        <div class="drink-name">JURASSIC JUICE</div>
+        <div class="drink-price">$5</div>
+      </div>
+
+      <div class="drink-card">
+        <div class="drink-emoji">🥛</div>
+        <div class="drink-name">TRICERA-MILK</div>
+        <div class="drink-price">$4</div>
+      </div>
+
+      <div class="drink-card">
+        <div class="drink-emoji">🧃</div>
+        <div class="drink-name">FOSSIL FUEL</div>
+        <div class="drink-price">$5</div>
+      </div>
+
+      <div class="drink-card">
+        <div class="drink-emoji">🥤</div>
+        <div class="drink-name">DINO-SODA</div>
+        <div class="drink-price">$4</div>
+      </div>
+    </div>
+
+    <div class="kids-meals">
+      <h2 style="color: white; font-size: 50px; text-align: center">
+        🦕 LITTLE DINOS KIDS MEALS 🦖
+      </h2>
+
+      <div class="kids-box">
+        <div class="kids-toy">🦖</div>
+        <div class="kids-name">T-REX KIDS</div>
+        <p>Tiny burger + dino nuggets + fossil fries</p>
+        <div class="kids-price">$12</div>
+        <div class="kids-toy">FREE T-REX TOY!</div>
+      </div>
+
+      <div class="kids-box">
+        <div class="kids-toy">🦕</div>
+        <div class="kids-name">BRACHIOSAURUS</div>
+        <p>Long sandwich + leaf salad + juice box</p>
+        <div class="kids-price">$12</div>
+        <div class="kids-toy">FREE DINO EGG!</div>
+      </div>
+
+      <div class="kids-box">
+        <div class="kids-toy">🥚</div>
+        <div class="kids-name">BABY RAPTOR</div>
+        <p>Mini nuggets + mash + dino drink</p>
+        <div class="kids-price">$10</div>
+        <div class="kids-toy">FREE HATCHING EGG!</div>
+      </div>
+    </div>
+
+    <div class="fossil-finds">
+      <h2 style="color: #8b4513; font-size: 40px">🦴 FOSSIL FINDS TOYS 🦴</h2>
+
+      <div class="fossil">
+        <div class="fossil-emoji">🦷</div>
+        <div class="fossil-name">T-REX TOOTH</div>
+        <p>$5</p>
+      </div>
+
+      <div class="fossil">
+        <div class="fossil-emoji">🦴</div>
+        <div class="fossil-name">DINO BONE</div>
+        <p>$7</p>
+      </div>
+
+      <div class="fossil">
+        <div class="fossil-emoji">🥚</div>
+        <div class="fossil-name">DINO EGG</div>
+        <p>$10</p>
+      </div>
+
+      <div class="fossil">
+        <div class="fossil-emoji">👣</div>
+        <div class="fossil-name">FOOTPRINT</div>
+        <p>$4</p>
+      </div>
+
+      <div class="fossil">
+        <div class="fossil-emoji">🦕</div>
+        <div class="fossil-name">MINI DINO</div>
+        <p>$12</p>
+      </div>
+    </div>
+
+    <footer>
+      <div class="trex">🦖🦕🦖🦕🦖</div>
+      <p>📍 PREHISTORIC PARK, JURASSIC LANE</p>
+      <p>📞 CALL: 1-800-DINO-MEAL</p>
+      <p>🌋 OPEN: 65 MILLION YEARS AND COUNTING!</p>
+      <p style="margin-top: 40px">© 2024 DINO DINER - WE ROAR FOR MORE!</p>
+    </footer>
+  </body>
+</html>
